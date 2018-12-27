@@ -10,17 +10,17 @@ namespace MagazinOnline.Models
     public class Category
     {
         [Key]
-        private int categoryId { get; set; }
-        private String name { get; set; }
+        public int categoryId { get; set; }
+        public String name { get; set; }
 
-        public virtual ICollection<Product> product { get; set; }
+        //public virtual ICollection<Product> product { get; set; }
     }
 
     public class CategoryDBContext : DbContext
     {
         public CategoryDBContext() : base("DBConnectionString") { }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products { get; set; }
+       // public DbSet<Product> Products { get; set; }
 
     }
 }
