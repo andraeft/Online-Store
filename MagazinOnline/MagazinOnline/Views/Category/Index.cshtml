@@ -2,13 +2,13 @@
     ViewBag.Title = "Lista categorii";
 }
 <h2>@ViewBag.Title</h2>
-@foreach (var category in ViewBag.Categories)
+@foreach (var category in ViewBag.Category)
 {
-    <p>@category.name</p>
-    <a href="/Student/Show/@category.categoryId">Afisare categorie</a>
+    <h3>@category.name</h3>
+    <a class="btn btn-default" href="/Category/Show/@category.categoryId">Afisare categorie</a>
     <br />
     <hr />
     <br />
 }
-<a href="/Category/New">Adauga alta categorie</a>
+<a class="btn btn-default" href="/Category/New">Adauga alta categorie</a>
 <br />

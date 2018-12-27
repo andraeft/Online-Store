@@ -1,15 +1,15 @@
 ﻿@{
-    ViewBag.Title = "Afisare student";
+    ViewBag.Title = "Afisare categorie";
 }
 <h1>@ViewBag.Category.name</h1>
 <br />
-<a href="/Student/Edit/@ViewBag.Category.categoryId">Modifica categorie</a>
+<a class="btn btn-default" href="/Category/Edit/@ViewBag.Category.categoryId">Modifica categorie</a>
 <form method="post" action="/Category/Delete/@ViewBag.Category.categoryId">
     @Html.HttpMethodOverride(HttpVerbs.Delete)
-    <button type="submit">Sterge studentul</button>
+    <button class="btn btn-default" type="submit">Sterge categoria</button>
 </form>
 <hr />
-<a href="/Student/Index">Inapoi la lista studentilor</a>
-<br />
-<a href="/Student/New">Adauga alt student</a>
+<a class="btn btn-default" href="/Category/Index">Inapoi la lista categoriilor</a>
+<br/> <br/>
+<a class="btn btn-default" href="/Category/New">Adauga alta categorie</a>
 <br />
