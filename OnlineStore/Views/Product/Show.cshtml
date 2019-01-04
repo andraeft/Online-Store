@@ -1,0 +1,40 @@
+﻿@model WebApplication1.Models.Product
+
+@{
+    ViewBag.Title = "Afisare produs";
+    Layout = "~/Views/Shared/_LayoutEx1.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+
+@Html.Partial("_PartialStire", @Model)
+
+<a href="/Product/Edit/@ViewBag.Product.ProductId">Modifica produs</a>
+<form method="post" action="/Product/Delete/@ViewBag.Product.ProductId">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button type="submit">Sterge produs</button>
+</form>
+
+
+<form method="post" action="/Review/New/@ViewBag.Product.ProductId">
+    <textarea type="text" name="Review" value="comment"> </textarea>
+    <button type="submit">Lasa un comentariu</button>
+</form>
+
+
+@foreach (var review in ViewBag.Reviews)
+{
+    <p>@review.Comment</p>
+    <br />
+    <hr />
+    <br />
+}
+<br />
+
+
+<hr />
+<a href="/Product/Index">Inapoi la lista produselor</a>
+<br />
+<a href="/Product/New">Adauga un alt produs</a>
+<br />
+
