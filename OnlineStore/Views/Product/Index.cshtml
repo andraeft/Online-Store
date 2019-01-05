@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Lista stiri";
+    Layout = "~/Views/Shared/_LayoutEx1.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (OnlineStore.Models.Product product in ViewBag.Products)
+{
+    @Html.Partial("_PartialProduct", product);
+    <a href="/Product/Show/@product.ProductId">Afisare produs</a>
+    <br />
+    <hr />
+}
+
+<a href="/Product/New">Adauga un nou produs</a>
+<br />

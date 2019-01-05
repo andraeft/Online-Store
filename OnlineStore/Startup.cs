@@ -20,9 +20,9 @@ namespace OnlineStore
         {
             ApplicationDbContext context = new ApplicationDbContext();
             var roleManager = new RoleManager<IdentityRole>(new
-           RoleStore<IdentityRole>(context));
+            RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<ApplicationUser>(new
-           UserStore<ApplicationUser>(context));
+            UserStore<ApplicationUser>(context));
             // Se adauga rolurile aplicatiei
             if (!roleManager.RoleExists("Administrator"))
             {
@@ -40,10 +40,10 @@ namespace OnlineStore
                     UserManager.AddToRole(user.Id, "Administrator");
                 }
             }
-            if (!roleManager.RoleExists("Editor"))
+            if (!roleManager.RoleExists("Colaborator"))
             {
                 var role = new IdentityRole();
-                role.Name = "Editor";
+                role.Name = "Colaborator";
                 roleManager.Create(role);
             }
             if (!roleManager.RoleExists("User"))

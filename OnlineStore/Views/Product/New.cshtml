@@ -1,0 +1,46 @@
+﻿@model OnlineStore.Models.Product
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_LayoutEx1.cshtml";
+}
+
+<h2>Adaugare produs</h2>
+<form method="post" action="/Product/New">
+    <!--<label>Titlu</label>
+    <br />
+    <input type="text" name="Titlu" />
+    <br /><br />
+    <label>Continut</label>
+    <br />
+    <input type="text" name="Continut" />
+    <br /> <br />
+    <label>Categorie</label>
+    <br />
+    <div class="col-md-10">
+        <select name="CategorieId">
+            foreach (var cat in ViewBag.CategorieId)
+            {
+                <option value="cat.Id">cat.Nume</option>
+            }
+        </select>
+    </div>
+    <br />-->
+    @Html.Label("Title", "Denumire produs")
+    <br />
+    @Html.TextBox("Title", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Title)
+    <br /><br />
+    @Html.Label("Description", "Descrierea produsului")
+    <br />
+    @Html.TextBox("Description", null, new { @class = "form-control" })
+    @Html.ValidationMessage("Description")
+    <br />
+    <br /><br />
+    @Html.Label("Price", "Pret")
+    @Html.TextBox("Price", null, new { @class = "form-control" })
+    @Html.ValidationMessage("Price")
+    <br /><br />
+    @Html.DropDownList("CategoryId", new SelectList(Model.Categories, "Value", "Text"), "Selectati categoria", new { @class = "form-control" })
+    <br />
+    <button type="submit">Adauga produs</button>
+</form>
